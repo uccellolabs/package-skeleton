@@ -1,0 +1,35 @@
+{
+    "name": "uccello/module-skeleton",
+    "description": "Module skeleton for Uccello",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan SARDO",
+            "email": "jonathan@uccellolabs.com"
+        }
+    ],
+    "require": {
+        "uccello/uccello": "0.4.*@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Uccello\\ModuleSkeleton\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Uccello\\ModuleSkeleton\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Uccello\\ModuleSkeleton\\Providers\\AppServiceProvider"
+            ]
+        }
+    }
+}
