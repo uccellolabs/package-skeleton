@@ -2,7 +2,7 @@
 
 namespace Uccello\ModuleSkeleton\Models;
 
-use Uccello\Core\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class ModuleSkeleton extends Model
 {

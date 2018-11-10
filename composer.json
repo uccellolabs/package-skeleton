@@ -1,6 +1,7 @@
 {
     "name": "uccello/module-skeleton",
     "description": "Module skeleton for Uccello",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -23,13 +24,6 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0.x-dev"
-        },
-        "laravel": {
-            "providers": [
-                "Uccello\\ModuleSkeleton\\Providers\\AppServiceProvider"
-            ]
-        }
+        "laravel": {}
     }
 }

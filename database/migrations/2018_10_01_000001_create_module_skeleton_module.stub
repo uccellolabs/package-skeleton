@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Uccello\Core\Database\Migrations\Traits\TablePrefixTrait;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Uccello\Core\Models\Module;
 use Uccello\Core\Models\Domain;
 use Uccello\Core\Models\Tab;
@@ -9,10 +10,8 @@ use Uccello\Core\Models\Block;
 use Uccello\Core\Models\Field;
 use Uccello\Core\Models\Filter;
 
-class CreateModuleSkeletonStructure extends Migration
+class CreateModuleSkeletonModule extends Migration
 {
-    use TablePrefixTrait;
-
     /**
      * Run the migrations.
      *
@@ -20,8 +19,10 @@ class CreateModuleSkeletonStructure extends Migration
      */
     public function up()
     {
+        $this->createTable();
+
         $module = $this->createModule();
-        $this->activateModuleOnDomain($module);
+        $this->activateModuleOnDomains($module);
         $this->createTabsBlocksFields($module);
         $this->createFilters($module);
     }
@@ -33,7 +34,20 @@ class CreateModuleSkeletonStructure extends Migration
      */
     public function down()
     {
+        // Drop table
+        Schema::dropIfExists('module_skeletons');
+
+        // Delete module
         Module::where('name', 'module-skeleton')->forceDelete();
+    }
+
+    protected function createTable()
+    {
+        Schema::create('module_skeletons', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     protected function createModule()
@@ -42,16 +56,19 @@ class CreateModuleSkeletonStructure extends Migration
         $module->name = 'module-skeleton';
         $module->icon = 'layers';
         $module->model_class = 'Uccello\ModuleSkeleton\Models\ModuleSkeleton';
-        $module->data = ["package" => "module-skeleton", "admin" => false];
+        $module->data = ["package" => "module-skeleton"];
         $module->save();
 
         return $module;
     }
 
-    protected function activateModuleOnDomain($module)
+    protected function activateModuleOnDomains($module)
     {
-        $domain = Domain::first();
-        $domain->modules()->attach($module);
+        $domains = Domain::all();
+
+        foreach ($domains as $domain) {
+            $domain->modules()->attach($module);
+        }
     }
 
     protected function createTabsBlocksFields($module)
