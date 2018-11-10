@@ -55,8 +55,8 @@ class CreateModuleSkeletonModule extends Migration
         $module = new  Module();
         $module->name = 'module-skeleton';
         $module->icon = 'layers';
-        $module->model_class = 'Uccello\ModuleSkeleton\Models\ModuleSkeleton';
-        $module->data = ["package" => "module-skeleton"];
+        $module->model_class = 'Uccello\PackageSkeleton\Models\ModuleSkeleton';
+        $module->data = ["package" => "package-skeleton"];
         $module->save();
 
         return $module;

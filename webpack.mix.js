@@ -15,4 +15,4 @@ mix.js('./resources/assets/js/app.js', 'public/js')
 mix.version();
 
 // Copy all compiled files into main project (auto publishing)
-mix.copyDirectory('public', '../../../public/vendor/uccello/module-skeleton');
+mix.copyDirectory('public', '../../../public/vendor/uccello/package-skeleton');

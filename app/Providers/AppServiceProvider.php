@@ -1,6 +1,6 @@
 <?php
 
-namespace Uccello\ModuleSkeleton\Providers;
+namespace Uccello\PackageSkeleton\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -19,17 +19,17 @@ class AppServiceProvider extends ServiceProvider
   public function boot()
   {
     // Views
-    $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'module-skeleton');
+    $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'package-skeleton');
 
     // Translations
-    $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'module-skeleton');
+    $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'package-skeleton');
 
     // Migrations
     $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
     // Publish assets
     $this->publishes([
-      __DIR__ . '/../../public' => public_path('vendor/uccello/module-skeleton'),
+      __DIR__ . '/../../public' => public_path('vendor/uccello/package-skeleton'),
     ], 'assets'); // CSS
   }
 

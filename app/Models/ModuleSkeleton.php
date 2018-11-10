@@ -1,6 +1,6 @@
 <?php
 
-namespace Uccello\ModuleSkeleton\Models;
+namespace Uccello\PackageSkeleton\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
