@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Uccello\Core\Database\Migrations\Migration;
 use Uccello\Core\Models\Module;
 use Uccello\Core\Models\Domain;
 use Uccello\Core\Models\Tab;
@@ -35,7 +35,7 @@ class CreateModuleSkeletonModule extends Migration
     public function down()
     {
         // Drop table
-        Schema::dropIfExists('module_skeletons');
+        Schema::dropIfExists($this->tablePrefix . 'module_skeletons');
 
         // Delete module
         Module::where('name', 'module-skeleton')->forceDelete();
@@ -43,10 +43,11 @@ class CreateModuleSkeletonModule extends Migration
 
     protected function createTable()
     {
-        Schema::create('module_skeletons', function (Blueprint $table) {
+        Schema::create($this->tablePrefix . 'module_skeletons', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
