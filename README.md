@@ -1,6 +1,6 @@
 # Package skeleton
 
-This is a skeleton to make new packages with [Uccello][link-uccello].
+This is a skeleton to make new packages with [Package Designer][link-package-designer].
 
 ## Installation
 
@@ -43,5 +43,6 @@ The MIT License (MIT).
 
 [link-organization]: https://github.com/uccellolabs
 [link-uccello]: https://github.com/uccellolabs/uccello
+[link-package-designer]: https://github.com/uccellolabs/package-designer
 [link-author]: https://github.com/sardoj
 [link-contributors]: ../../contributors
