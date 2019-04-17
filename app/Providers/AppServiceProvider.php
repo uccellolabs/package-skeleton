@@ -27,10 +27,14 @@ class AppServiceProvider extends ServiceProvider
     // Migrations
     $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
+    // Routes
+    $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+
     // Publish assets
     $this->publishes([
       __DIR__ . '/../../public' => public_path('vendor/uccello/package-skeleton'),
     ], 'assets'); // CSS
+
   }
 
   public function register()
