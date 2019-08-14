@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
     // Publish assets
     $this->publishes([
       __DIR__ . '/../../public' => public_path('vendor/uccello/package-skeleton'),
-    ], 'assets'); // CSS
+    ], 'package-skeleton-assets');
 
   }
 
