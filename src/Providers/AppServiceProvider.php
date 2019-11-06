@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
     // Routes
-    $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
+    $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
 
     // Publish assets
     $this->publishes([

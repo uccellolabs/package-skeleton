@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Uccello\\PackageSkeleton\\": "app/"
+            "Uccello\\PackageSkeleton\\": "src/"
         }
     },
     "autoload-dev": {
