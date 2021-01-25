@@ -34,9 +34,19 @@ class AppServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../public' => public_path('vendor/uccello/package-skeleton'),
         ], 'package-skeleton-assets');
+
+        // Config
+        // $this->publishes([
+        //     __DIR__ . '/../../config/package-skeleton.php' => config_path('package-skeleton.php'),
+        // ], 'package-skeleton-config');
     }
 
     public function register()
     {
+        // Config
+        // $this->mergeConfigFrom(
+        //     __DIR__ . '/../../config/package-skeleton.php',
+        //     'package-skeleton'
+        // );
     }
 }
