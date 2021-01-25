@@ -9,36 +9,34 @@ use Illuminate\Support\ServiceProvider;
  */
 class AppServiceProvider extends ServiceProvider
 {
-  /**
-   * Indicates if loading of the provider is deferred.
-   *
-   * @var bool
-   */
-  protected $defer = false;
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
 
-  public function boot()
-  {
-    // Views
-    $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'package-skeleton');
+    public function boot()
+    {
+        // Views
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'package-skeleton');
 
-    // Translations
-    $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'package-skeleton');
+        // Translations
+        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'package-skeleton');
 
-    // Migrations
-    $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        // Migrations
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
-    // Routes
-    $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
+        // Routes
+        $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
 
-    // Publish assets
-    $this->publishes([
-      __DIR__ . '/../../public' => public_path('vendor/uccello/package-skeleton'),
-    ], 'package-skeleton-assets');
+        // Publish assets
+        $this->publishes([
+            __DIR__ . '/../../public' => public_path('vendor/uccello/package-skeleton'),
+        ], 'package-skeleton-assets');
+    }
 
-  }
-
-  public function register()
-  {
-
-  }
+    public function register()
+    {
+    }
 }
