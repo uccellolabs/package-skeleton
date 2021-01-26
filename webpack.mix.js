@@ -11,5 +11,7 @@ mix.js('./resources/js/script.js', 'public/js')
    .sass('./resources/sass/styles.scss', 'public/css')
    .version()
 
-// Copy all compiled files into main project (auto publishing)
-mix.copyDirectory('public', '../../../public/vendor/uccello/package-skeleton');
+mix.after(webpackStats => {
+    // Copy all compiled files into main project (auto publishing)
+    mix.copyDirectory('public', '../../../public/vendor/uccello/package-skeleton');
+});
